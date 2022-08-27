@@ -1,5 +1,11 @@
 import Search from "@mui/icons-material/Search";
 import React from "react";
+import {
+  TwitterTimelineEmbed,
+  TwitterShareButton,
+  TwitterTweetEmbed,
+} from "react-twitter-embed";
+import "./Widget.css";
 
 function Widgets() {
   return (
@@ -12,6 +18,18 @@ function Widgets() {
         <h2>いまどうしてる？</h2>
 
         {/* ライブラリを追加・追記 */}
+        <TwitterTweetEmbed tweetId={"1168858027136450567"} />
+
+        <TwitterTimelineEmbed
+          sourceType="profile"
+          screenName="SplatoonJP"
+          //   400効いてない
+          options={{ height: 400 }}
+        />
+        <TwitterShareButton
+          url={"https://twitter.com/__tomotomon"}
+          options={{ text: "#React.js勉強中", via: "__tomotomon" }}
+        />
       </div>
     </div>
   );

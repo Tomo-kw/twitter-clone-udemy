@@ -16,11 +16,6 @@ function Timeline() {
       {/* 投稿要素（POST情報） */}
       <Post />
       <Post />
-      <Post />
-      <Post />
-      <Post />
-      <Post />
-      <Post />
     </div>
   );
 }
