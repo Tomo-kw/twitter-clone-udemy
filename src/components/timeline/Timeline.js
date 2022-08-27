@@ -14,8 +14,15 @@ function Timeline() {
       <TweetBox />
 
       {/* 投稿要素（POST情報） */}
-      <Post />
-      <Post />
+      <Post
+        displayName="プログラミングチュートリアル"
+        username="Shin_Engineer"
+        verified={true}
+        text="初めてのツイート"
+        avatar="http://shincode.info/wp-content/uploads/2021/12/icon.png"
+        image="https://source.unsplash.com/random"
+      />
+      {/* <Post /> */}
     </div>
   );
 }
