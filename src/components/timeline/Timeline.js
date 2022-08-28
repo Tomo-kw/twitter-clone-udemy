@@ -3,7 +3,13 @@ import Post from "./Post";
 import "./Timeline.css";
 import TweetBox from "./TweetBox";
 import db from "../../firebase";
-import { collection, getDocs, orderBy, query } from "firebase/firestore";
+import {
+  collection,
+  // getDocs,
+  onSnapshot,
+  orderBy,
+  query,
+} from "firebase/firestore";
 
 function Timeline() {
   const [posts, setPosts] = useState([]);
@@ -12,8 +18,13 @@ function Timeline() {
     const postDate = collection(db, "posts");
     // Firestoreの関数を使って最新のツイート順に並び替え
     const q = query(postDate, orderBy("timestamp", "desc"));
-    // DocsはPromiseオブジェクト
-    getDocs(q).then((querySnapshot) => {
+    // DocsはPromiseオブジェクト、リアルタイムではない
+    // getDocs(q).then((querySnapshot) => {
+    //   setPosts(querySnapshot.docs.map((doc) => doc.data()));
+    // });
+
+    // リアルタイムでデータを取得
+    onSnapshot(q, (querySnapshot) => {
       setPosts(querySnapshot.docs.map((doc) => doc.data()));
     });
   }, []);
